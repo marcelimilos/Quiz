@@ -1,9 +1,119 @@
 <!DOCTYPE html>
+<html lang="pl">
 <html>
+    <head>
+        <meta charset="UTF-8"
+        <title>Quiz!!!</title>
+
+        <style>
+            label {
+                display: block;
+            }
+
+            input {
+                width: 30px;
+                margin-left: 20px;
+            }
+
+            button {
+                width: 100px;
+                margin-top: 20px;
+            }
+            body {
+                background-color:steelblue;
+                font-family: Helvetica;
+            }
+
+           
+#main {
+    width: 80%;
+    max-width: 950px;
+    border: 1px salmon;
+    margin: auto;
+    padding: 10px;
+    background-color: bisque;
+    border-radius: 10px;
+}
+
+#header {
+    margin-top: 0;
+    border: 5px solid black;
+    padding: 5px;
+    height: 250px;
+    background: beige;
+    background-image: url("/Users/marcelimilos/Desktop/Nauka Kodu/quiz/code.jpg");
+    color: rgb(255, 255, 255);
+}
+
+
+
+</style>
+    </head>
     <body>
-        <script>
-            console.log("dowolny inny tekst")
-            
-        </script>
+
+        <div id="main"><!-- Otwieram MAIN DIV-->
+            <div id="header"><!--Otwieram HEADER DIV-->
+        <h1>Quiz z muzyki!!!</h1>
+            </div><!--Zamykam HEADER DIV-->
+            <form id="form1">
+
+                <h2>Który zespół pochodzi z UK?</h2>
+                <label for="var_string"><input type="radio" name="variable" value="25" id="var_string" />Iron Maiden</label>
+                <label for="var_join"><input type="radio" name="variable" value="0" id="var_join" />Red Hot Chili Peppers</label>
+                <label for="var_info"><input type="radio" name="variable" value="0" id="var_info" />Korn</label>
+                <label for="var_condition"><input type="radio" name="variable" value="0" id="var_condition"/>Metallica</label>
+                
+                <h2>Kto z wymienionych, nie jest wokalistą?</h2>
+                <label for="sub_string"><input type="radio" name="sub" value="0" id="sub_string"/>Bruce Dickson</label>
+                <label for="sub_join"><input type="radio" name="sub" value="25" id="sub_join"/>Lars Ulrich</label>
+                <label for="sub_info"><input type="radio" name="sub" value="0" id="sub_info" />Dave Gahan</label>
+                <label for="sub_condition"><input type="radio" name="sub" value="0" id="sub_condition" />Dave Grohl</label>
+                
+                <h2>Kto z wymienionych jest najstarszy?</h2>
+                <label for="cat_string"><input type="radio" name="con" value="0" id="cat_string" />Ozzy Osbourne</label>
+                <label for="cat_join"><input type="radio" name="con" value="0" id="cat_join" />James Hetfield</label>
+                <label for="cat_info"><input type="radio" name="con" value="0" id="cat_info" />Robert Plant</label>
+                <label for="cat_condition"><input type="radio" name="con" value="25" id="cat_condition" />Steven Tyler</label>
+                
+                <h2>Która piosenka znajduje się na albumie ,,Toxicity''?</h2>
+                <label for="if_string"><input type="radio" name="ifstate" value="0" id="if_string" />Suite-Pee</label>
+                <label for="if_join"><input type="radio" name="ifstate" value="0" id="if_join" />Mr.Jack</label>
+                <label for="if_info"><input type="radio" name="ifstate" value="0" id="if_info" />Science</label>
+                <label for="if_condition"><input type="radio" name="ifstate"  value="25" id="if_condition" />Know</label>
+                
+                <button type="submit" value="Submit">Submit</button>
+                
+                </form>
+                
+                
+
+        <p>Twój wynik to: <span id="grade">__</span></p>
+    <p id="grade2"></p>
+        </div><!--Zamykam MAIN DIV-->
+
+<script>
+    document.getElementById("form1").onsubmit=function() {
+       variable = parseInt(document.querySelector('input[name = "variable"]:checked').value);
+	   sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
+	   con = parseInt(document.querySelector('input[name = "con"]:checked').value);
+	   ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
+
+
+	   result = variable + sub + con + ifstate;
+
+	document.getElementById("grade").innerHTML = result;
+
+    if (result == 0) {result2 = "Tragedia"};
+if (result == 25) {result2 = "Masakra"};
+if (result == 50) {result2 = "W miare ok..."};
+if (result == 75) {result2 = "Prawie, coraz lepiej!"};
+if (result == 100) {result2 = "Pięknie!"};
+document.getElementById("grade2").innerHTML = result2;
+
+
+return false; // required to not refresh the page; just leave this here
+    } //this ends the submit function
+</script>
+
     </body>
 </html>
